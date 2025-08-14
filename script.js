@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function abrirLinkCheckout() {
-        window.open('https://pay.kiwify.com.br/sNBI3IF', '_blank');
+        window.open('https://pay.hotmart.com/H101258845W', '_blank');
     }
 
     function marcarBotaoSelecionado(botao) {
@@ -204,4 +204,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     irParaPagina(1);
+
 });
