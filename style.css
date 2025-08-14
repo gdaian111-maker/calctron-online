@@ -1,0 +1,244 @@
+@font-face {
+    font-family: 'Aptos';
+    src: url('path/to/Aptos.woff2') format('woff2'),
+         url('path/to/Aptos.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Aptos';
+    src: url('path/to/Aptos-Bold.woff2') format('woff2'),
+         url('path/to/Aptos-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+:root {
+    --cor-fundo: rgb(0, 13, 31);
+    --cor-caixa-principal: rgb(0, 5, 12);
+    --cor-texto-principal: lime;
+    --cor-botoes: lime;
+    --cor-botoes-selecionado: darkgreen;
+    --sombra-caixa-principal: 0 0 15px 5px rgba(0, 255, 255, 0.5);
+    --sombra-botoes: 0 0 5px 3px rgba(127, 255, 0, 0.3); /* Sombra neon mais suave */
+    --sombra-texto: 0 0 10px 3px rgba(0, 255, 255, 0.7);
+    --sombra-oferta: 0 0 10px 3px rgba(0, 255, 255, 0.7);
+    --tamanho-fonte-padrao: 1rem;
+    --tamanho-fonte-botoes: 0.9rem;
+    --borda-raio: 15px;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Aptos', sans-serif;
+    color: var(--cor-texto-principal);
+    font-size: 16px;
+}
+
+.fundo {
+    background-color: var(--cor-fundo);
+    background-image: url('fibra_carbono.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.retangulo-i {
+    width: 90%;
+    height: 71.25vh; /* 95vh - 25% */
+    max-width: 83vh;
+    background-color: var(--cor-caixa-principal);
+    border-radius: 20px;
+    position: relative;
+    box-shadow: var(--sombra-caixa-principal);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Move o retangulo-i 15% para baixo */
+    transform: translateY(10%);
+}
+
+.logotipo {
+    position: fixed;
+    width: 40%;
+    height: auto;
+    max-width: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    /* Posicionamento do logo no espaço entre o topo da página e o topo do retangulo-i */
+    top: calc( (100vh - 71.25vh) / 2 * 0.65 - (40% / 2));
+    /* Move o logotipo 15% para baixo, igual ao retangulo-i */
+    transform: translate(-50%, 47%);
+}
+
+.pagina {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.pagina.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.conteudo-pagina {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.retangulo-tx {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: normal;
+    word-break: break-word;
+    border-radius: var(--borda-raio);
+    box-shadow: var(--sombra-texto);
+    color: var(--cor-texto-principal);
+    box-sizing: border-box;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    overflow-y: auto;
+}
+
+.retangulo-oferta {
+    width: 100%;
+    max-height: 80%;
+    border-radius: 5px;
+    box-shadow: var(--sombra-oferta);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.retangulo-oferta img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+button {
+    border-radius: var(--borda-raio);
+    background-color: var(--cor-botoes);
+    box-shadow: var(--sombra-botoes);
+    font-family: 'Aptos', sans-serif;
+    color: black;
+    font-size: var(--tamanho-fonte-botoes);
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    padding: 15px;
+    width: 100%;
+    flex-shrink: 0;
+}
+button:active {
+    transform: scale(0.98);
+}
+
+.botoes-respostas {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.botoes-respostas .retangulo-resp {
+    width: 100%;
+    height: 50px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*flex-basis: auto;*/
+    /*min-height: 40px;*/
+}
+
+.botoes-bottom {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.botoes-bottom .retangulo-bot {
+    width: 30%;
+    height: 45px;
+    padding: 15px;
+}
+
+#botao-avancar, #botao-obter-oferta {
+    width: 90%;
+    height: 45px;
+    margin-top: 20px;
+}
+
+/* Animação de pulsar para o botão "Obter Oferta!" */
+@keyframes pulsar {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+#botao-obter-oferta {
+    animation: pulsar 1.5s infinite;
+}
+
+.retangulo-resp.selecionado {
+    background-color: var(--cor-botoes-selecionado);
+}
+
+/* Media Query para telas maiores (desktop) */
+@media (min-width: 600px) {
+    .retangulo-tx {
+        font-size: 1.2rem;
+    }
+    .botoes-respostas .retangulo-resp {
+        font-size: 1.1rem;
+    }
+    .botoes-bottom .retangulo-bot {
+        font-size: 1.1rem;
+    }
+    #botao-avancar, #botao-obter-oferta {
+        font-size: 1.2rem;
+    }
+}
+#pagina-2 #botao-comprar-2 {
+    display: none;
+}
+#pagina-3 #botao-comprar-3 {
+    display: none;
+}
